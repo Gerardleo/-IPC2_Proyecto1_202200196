@@ -1,0 +1,13 @@
+// Matriz del piso: ejemplo03
+digraph {
+	Matriz [label="Matriz del piso: ejemplo03"]
+	00 [label=B]
+	01 [label=N]
+	02 [label=N]
+	03 [label=N]
+	04 [label=N]
+	00 -> 01
+	01 -> 02
+	02 -> 03
+	03 -> 04
+}
