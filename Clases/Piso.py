@@ -1,4 +1,5 @@
-from Clases.ListaSimple import ListaSimple as Lista
+from Clases.ListaDoble import ListaDoble as Lista
+
 import graphviz as gv
 
 class Piso:
@@ -52,55 +53,22 @@ class Piso:
             temp = temp.siguiente
         return None
     
-    def crearMatriz(self):
-#crear una matriz de un patron 
-    
-        matriz = Lista()  # Inicializamos la matriz como una lista enlazada simple vacía
-        
+    def mostrarPatronOrigen(self):
         temp = self.patron.inicio
-        while temp != None:
-            letra = 0
-            patron = temp.getValor()
-            nombre = patron.getNombre()
-            valor = patron.getValor()
-            for i in range(self.filas):
-                for j in range(self.columnas):
-                    caracter = valor[letra]
-                    matriz.agregar(caracter)
-                    letra += 1
-            temp = temp.siguiente
-        return matriz
+        # print("Nombre: ", temp.getValor().getNombre())
+        # print("Valor: ", temp.getValor().getValor())
+        # print("\n")
+        return temp.getValor()
     
-    def imprimirMatriz(self):
-        matriz = self.crearMatriz()
-        temp = matriz.inicio
-        nombre = self.getNombre()
-        print("Matriz del piso: ", nombre)
-        for i in range(self.filas):
-            for j in range(self.columnas):
-                print(temp.getValor(), end = " ")
-                temp = temp.siguiente
-            print("\n")
+    def mostrarPatronDestino(self):
+        temp = self.patron.inicio
+        temp = temp.siguiente
+        # print("Nombre: ", temp.getValor().getNombre())
+        # print("Valor: ", temp.getValor().getValor())
+        # print("\n")
+        return temp.getValor()
+    
 
-    def graficaMatriz(self):
-        matriz = self.crearMatriz()
-        temp = matriz.inicio
-        nombre = self.getNombre()
-        dot = gv.Digraph(comment='Matriz del piso: ' + nombre)
-        dot.node("Matriz", "Matriz del piso: " + nombre)
-        for i in range(self.filas):
-            for j in range(self.columnas):
-                dot.node(str(i) + str(j), temp.getValor())
-                temp = temp.siguiente
-        temp = matriz.inicio
-        for i in range(self.filas):
-            for j in range(self.columnas):
-                if j != self.columnas - 1:
-                    dot.edge(str(i) + str(j), str(i) + str(j + 1))
-                if i != self.filas - 1:
-                    dot.edge(str(i) + str(j), str(i + 1) + str(j))
-        dot.render('Matriz', view=True)
-    
     def desplegar(self):
         print("Nombre: ", self.nombre)
         print("Filas: ", self.filas)
