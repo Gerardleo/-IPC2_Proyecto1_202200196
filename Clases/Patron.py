@@ -50,7 +50,7 @@ class Patron:
     def generar_dot(self,matriz):
         dot_code = 'digraph G {\n'
         dot_code += 'node [shape=plaintext];\n'
-        dot_code += 'matriz [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="2" CELLPADDING="5">\n'  # Modificación aquí
+        dot_code += 'matriz [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="4" CELLPADDING="5">\n'  # Modificación aquí
 
         nodo_fila = matriz.inicio
         while nodo_fila is not None:
@@ -61,7 +61,7 @@ class Patron:
                     color = 'white'
                 else :
                     color = 'black'
-                dot_code += f'<TD BGCOLOR="{color}" WIDTH="30" HEIGHT="30">{nodo_columna.valor}</TD>'
+                dot_code += f'<TD BGCOLOR="{color}" WIDTH="30" HEIGHT="30"></TD>'
                 nodo_columna = nodo_columna.siguiente
             dot_code += '</TR>\n'
             nodo_fila = nodo_fila.siguiente
@@ -70,6 +70,8 @@ class Patron:
         dot_code += '}'
 
         return dot_code
+    
+
     
     
     def generar_imagen_dot(self,dot_code, file_path='matriz.png'):
