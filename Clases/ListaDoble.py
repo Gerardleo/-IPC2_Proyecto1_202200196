@@ -23,10 +23,19 @@ class ListaDoble:
             temp = temp.siguiente
         return None
     
-    def desplegar(self):
+    def desplegarPisos(self):
         temp = self.inicio
         print("===================================")
         print("           Lista de Pisos          ")
+        print("===================================")
+        while temp != None:
+            print(temp.getValor().getNombre())
+            temp = temp.siguiente
+
+    def desplegarPatrones(self):
+        temp = self.inicio
+        print("===================================")
+        print("           Lista de Patrones       ")
         print("===================================")
         while temp != None:
             print(temp.getValor().getNombre())
@@ -43,6 +52,14 @@ class ListaDoble:
                     temp2.setValor(aux)
                 temp2 = temp2.siguiente
             temp = temp.siguiente
+
+    def buscarPatron(self, nombre):
+        temp = self.inicio
+        while temp != None:
+            if temp.getValor().getNombre() == nombre:
+                return temp.getValor()
+            temp = temp.siguiente
+        return None
 
 
     

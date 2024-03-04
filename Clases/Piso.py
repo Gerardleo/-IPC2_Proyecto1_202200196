@@ -45,6 +45,9 @@ class Piso:
     def agregarPatron(self, patron):
         self.patron.agregar(patron)
 
+    def getPatron(self):
+        return self.patron
+
     def buscarPorNombre(self, nombre):
         temp = self.filas.siguiente
         while temp != None:
@@ -53,20 +56,38 @@ class Piso:
             temp = temp.siguiente
         return None
     
-    def mostrarPatronOrigen(self):
+    def mostrarPatronOrigen(self, nombre):
         temp = self.patron.inicio
-        # print("Nombre: ", temp.getValor().getNombre())
-        # print("Valor: ", temp.getValor().getValor())
-        # print("\n")
+        while temp != None:
+            if temp.getValor().getNombre() == nombre:
+                return temp.getValor()
+            temp = temp.siguiente
         return temp.getValor()
     
-    def mostrarPatronDestino(self):
+    def mostrarPatronDestino(self, nombre):
         temp = self.patron.inicio
-        temp = temp.siguiente
-        # print("Nombre: ", temp.getValor().getNombre())
-        # print("Valor: ", temp.getValor().getValor())
-        # print("\n")
+        while temp != None:
+            if temp.getValor().getNombre() == nombre:
+                return temp.getValor()
+            temp = temp.siguiente
+        
         return temp.getValor()
+    
+    def mostrarPatronPisos(self):
+        temp = self.patron.inicio
+        print("===================================")
+        print("           Lista de Pisos          ")
+        print("===================================")
+        while temp != None:
+            print(temp.getValor().getNombre())
+            temp = temp.siguiente
+
+
+    def validarPatrones(self, PisoOrigen,PisoDestino):
+        if PisoOrigen.getValor().getfilas() == PisoDestino.getValor().getfilas() and PisoOrigen.getValor().getcolumnas() == PisoDestino.getValor().getcolumnas():
+            return True
+        else:
+            return False
     
 
     def desplegar(self):
