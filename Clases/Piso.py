@@ -88,6 +88,9 @@ class Piso:
             return True
         else:
             return False
+        
+    def ordenarPatrones(self):
+        self.patron.ordenar()
     
 
     def desplegar(self):
@@ -96,6 +99,6 @@ class Piso:
         print("Columnas: ", self.columnas)
         print("Costo Volteo: ", self.costo_voleteo)
         print("Costo Intercambio: ", self.costo_intercambio)
-        print("Patron: ", self.patron)
+        print("Patron: ", self.patron.desplegarPatrones())
         print("\n")
 

@@ -23,34 +23,28 @@ def leer_xml(archivo):
        
         for pisos in root.findall('piso'):
             nombre = pisos.get('nombre')
-            fila = pisos.find('R').text
-            columna = pisos.find('C').text
-            costo_volteo = pisos.find('F').text
-            costo_intercambio = pisos.find('S').text
-            piso = Piso(nombre, fila, columna, costo_volteo, costo_intercambio)
-           # piso.desplegar()
-    
-            # Buscar los patrones dentro de cada piso
-            for patron in pisos.findall('.//patron'): 
-                codigo = patron.get('codigo')
-                valor = patron.text.strip()  # Eliminar espacios en blanco al inicio y al final
-                patron = Patron(codigo, valor)
-               # patron.desplegar()
-                piso.agregarPatron(patron)
-                #matriz = patron.matriz(int(columna))
-                #patron.imprimir_matriz(matriz)
-                
-                #arbol = patron.generar_dot(matriz)
-                #patron.generar_imagen_dot(arbol, codigo)
+            fila = int(pisos.find('R').text)
+            columna = int(pisos.find('C').text)
+            costo_volteo = int(pisos.find('F').text)
+            costo_intercambio = int(pisos.find('S').text)
+            if int(fila) < 0 or int(columna) < 0 or int(costo_volteo) < 0 or int(costo_intercambio) < 0:
+                print(f"Error: Los valores de fila, columna, costo de volteo y costo de intercambio deben ser mayores a 1, en el piso {nombre}")
+            else:
+                piso = Piso(nombre, fila, columna, costo_volteo, costo_intercambio)        
+                for patron in pisos.findall('.//patron'): 
+                    codigo = patron.get('codigo')
+                    valor = patron.text.strip()  # Eliminar espacios en blanco al inicio y al final
+                    if len(valor) != fila * columna:
+                        print(f"Error: El patrón {codigo} no tiene el tamaño correcto en el piso {nombre}")
+                    else:
+                        patron = Patron(codigo, valor)
+                        piso.agregarPatron(patron)
+                        piso.ordenarPatrones()         
 
-            ListaPisos.agregar(piso)
-            #ListaPisos.ordenar()
-            #ListaPisos.desplegar()
+                ListaPisos.agregar(piso)
+        ListaPisos.ordenar()
             
-                
-
-            # Crear la matriz de patrones
-
+            
     except Exception as e:
         print("Error: ", e)
         return None  # Devolver None si hay un error    
@@ -63,7 +57,7 @@ def main():
         print("===================================")
         print("1. Cargar archivo XML")
         print("2. Gestionar Pisos")
-        print("3. Ordenar Pisos")
+        print("3. Ver Pisos con sus patrones")
         print("4. Salir")
         print("")
         opcion_principal = str(input("Ingrese una opcion: "))
@@ -115,10 +109,9 @@ def main():
                         print("Opcion Invalida")
 
             elif opcion_principal == '3':
-                print("Ordenando Pisos...")
+                print("Mostrando Pisos con sus patrones...")
                 time.sleep(2)
-                ListaPisos.ordenar()
-                ListaPisos.desplegarPisos()
+                ListaPisos.desplegarPisosyPatrones()
             elif opcion_principal == '4':
                 print("Muchas gracias por usar el programa UwU")
                 validador = False
@@ -223,14 +216,14 @@ def logicaCostoMinimo(costoVolteo, costoIntercambio):
                 # Si los valores no coinciden
                 if filaO.valor != filaD.valor:
                     # Si los valores adyacentes coinciden
-                    if filaO.siguiente is not None and filaD.siguiente is not None:
+                    if filaO.siguiente is not  None and filaD.siguiente is not None:
                         if filaO.siguiente.valor == filaD.valor: 
                             mensaje = Mensaje(f"Se ha encontrado un intercambio en la posición {filaO.valor} y {filaD.valor}", costoIntercambio)
                             procedimientos.agregar(mensaje)
                         
-                        elif filaD.siguiente is None:
-                            mensaje = Mensaje(f"Se ha encontrado un volteo en la posición {filaO.valor} y {filaD.valor}", costoVolteo)
-                            procedimientos.agregar(mensaje)
+                    else:
+                        mensaje = Mensaje(f"Se ha encontrado un volteo en la posición {filaO.valor} y {filaD.valor}", costoVolteo)
+                        procedimientos.agregar(mensaje)
                 
                 # Avanzar a la siguiente celda en ambas filas
                 filaO = filaO.siguiente
