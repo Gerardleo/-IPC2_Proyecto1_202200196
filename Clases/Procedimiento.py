@@ -15,11 +15,11 @@ class Procedimiento:
         print("       Lista de Procedimientos     ")
         print("===================================")
         while temp != None:
-            print(f"{temp.getValor().getMensaje()}- costr: {temp.getValor().getCosto()}")
+            print(f"{temp.getValor().getMensaje()}-costo: Q{temp.getValor().getCosto()}")
             total += temp.getValor().getCosto()
             temp = temp.siguiente
         print("===================================")
-        print("           Total: ", total)
+        print(f"           Total: Q{total}.00")
         print("===================================")
     
     def limpiar(self):

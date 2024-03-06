@@ -41,6 +41,25 @@ class ListaDoble:
             print(temp.getValor().getNombre())
             temp = temp.siguiente
 
+    def desplegarPisosyPatrones(self):
+        temp = self.inicio
+        while temp != None:
+            print("===================================")
+            print("           Lista de Piso          ")
+            print("===================================")
+            print(temp.getValor().getNombre())
+            temp2 = temp.getValor().getPatron().inicio
+            print("===================================")
+            print("           Lista de Patrones       ")
+            print("===================================")
+            if temp2 == None:
+                print("No hay patrones")
+            while temp2 != None:
+                print(temp2.getValor().getNombre())
+                temp2 = temp2.siguiente
+            temp = temp.siguiente
+        temp = self.inicio
+
     def ordenar(self):
         temp = self.inicio
         while temp != None:
@@ -60,8 +79,4 @@ class ListaDoble:
                 return temp.getValor()
             temp = temp.siguiente
         return None
-
-
     
-
-            

@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<pisosGuatemala>
+    <piso nombre="aj">
+        <R> 3 </R>
+        <C> 3 </C>
+        <F> 1 </F>
+        <S> 1 </S>
+        <patrones>
+            <patron codigo="cod23">
+            NNNBBNNNB
+            </patron>
+            <patron codigo="cod24">
+            BBBBNNNNB
+            </patron>
+            <patron codigo="cod25">
+            BNNBNNBBN
+            </patron>
+            <patron codigo="cod21">
+            BNNNBNBBB
+            </patron>
+            <patron codigo="cod22">
+            BBBBNBBBN
+            </patron>
+        </patrones>
+    </piso>
+    <piso nombre="bc">
+        <R> 4 </R>
+        <C> 2 </C>
+        <F> 2 </F>
+        <S> 2 </S>
+        <patrones>
+            <patron codigo="cod44">
+            NNNBB
+            </patron>
+            <patron codigo="cod43">
+            BNBNN
+            </patron>
+            <patron codigo="cod41">
+            BBNN
+            </patron>
+            <patron codigo="cod42">
+            BNNN
+            </patron>
+            <patron codigo="cod45">
+            BNNBN
+            </patron>
+        </patrones>
+    </piso>
+    <piso nombre="az">
+        <R> 2 </R>
+        <C> 4 </C>
+        <F> 1 </F>
+        <S> 1 </S>
+        <patrones>
+            <patron codigo="cod13">
+            BNBNNBBB
+            </patron>
+            <patron codigo="cod14">
+            NNNNNBBB
+            </patron>
+            <patron codigo="cod11">
+            BNBNBBBN
+            </patron>
+            <patron codigo="cod12">
+            NBNBBBBB
+            </patron>
+            <patron codigo="cod15">
+            BBBBBNBBB
+            </patron>
+        </patrones>
+    </piso>
+    <piso nombre="cd">
+        <R> 2 </R>
+        <C> 2 </C>
+        <F> 3 </F>
+        <S> 3 </S>
+        <patrones>
+            <patron codigo="cod52">
+            NBBN
+            </patron>
+            <patron codigo="cod53">
+            BNNB
+            </patron>
+            <patron codigo="cod51">
+            BBNB
+            </patron>
+            <patron codigo="cod54">
+            NNNN
+            </patron>
+            <patron codigo="cod55">
+            BBNBNN
+            </patron>
+        </patrones>
+    </piso>
+    <piso nombre="cd">
+        <R> 1 </R>
+        <C> 5 </C>
+        <F> 1000 </F>
+        <S> 1 </S>
+        <patrones>
+            <patron codigo="cod33">
+            BNBNN
+            </patron>
+            <patron codigo="cod34">
+            NNBNN
+            </patron>
+            <patron codigo="cod31">
+            BNNNN
+            </patron>
+            <patron codigo="cod32">
+            NNNBB
+            </patron>
+            <patron codigo="cod35">
+            BBBNN
+            </patron>
+        </patrones>
+    </piso>
+</pisosGuatemala>

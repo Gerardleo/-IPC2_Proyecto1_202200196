@@ -28,7 +28,7 @@
             </patron>
         </patrones>
     </piso>
-    <piso nombre="ab">
+    <piso nombre="az">
         <R> 1 </R>
         <C> 5 </C>
         <F> 1000 </F>
